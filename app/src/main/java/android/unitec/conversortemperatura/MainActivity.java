@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner spinner;
@@ -42,10 +43,21 @@ public class MainActivity extends AppCompatActivity {
         String select=spinner2.getSelectedItem().toString();
 
         if (selec.equalsIgnoreCase("CELSIUS")&& select.equalsIgnoreCase("FARENHEIT")) {
-            double conversion= nro1+ 273.15;;
+            double conversion= (nro1*1.8)+ 32;
             String resu=String.valueOf(conversion);
             tvResultado.setText(resu + " F° ");
+        }else if(selec.equalsIgnoreCase("CELSIUS")&& select.equalsIgnoreCase("KELVIN")){
+            double conversion= nro1+ 273.15;;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " K ");
+        }else if(selec.equalsIgnoreCase("CELSIUS")&& select.equalsIgnoreCase("RANKINE")){
+            double conversion= (9*nro1/5)+491.67;;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " °Ra ");
+        }else{
+            Toast.makeText(this, "No se puede convertir entre el mismo tipo", Toast.LENGTH_LONG).show();
         }
+
     }
     //Función limpiar
     public void Limpiar (View view){
