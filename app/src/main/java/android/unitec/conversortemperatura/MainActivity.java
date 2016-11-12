@@ -41,25 +41,78 @@ public class MainActivity extends AppCompatActivity {
 
         String selec=spinner.getSelectedItem().toString();
         String select=spinner2.getSelectedItem().toString();
-
+        double conversion;
+        //CONVERSIONES DE CELSIUS
         if (selec.equalsIgnoreCase("CELSIUS")&& select.equalsIgnoreCase("FARENHEIT")) {
-            double conversion= (nro1*1.8)+ 32;
+            conversion= (nro1*1.8)+ 32;
             String resu=String.valueOf(conversion);
-            tvResultado.setText(resu + " F° ");
+            tvResultado.setText(resu + " °F ");
         }else if(selec.equalsIgnoreCase("CELSIUS")&& select.equalsIgnoreCase("KELVIN")){
-            double conversion= nro1+ 273.15;;
+            conversion= nro1+ 273.15;;
             String resu=String.valueOf(conversion);
             tvResultado.setText(resu + " K ");
         }else if(selec.equalsIgnoreCase("CELSIUS")&& select.equalsIgnoreCase("RANKINE")){
-            double conversion= (9*nro1/5)+491.67;;
+            conversion= (9*nro1/5)+491.67;;
             String resu=String.valueOf(conversion);
             tvResultado.setText(resu + " °Ra ");
-        }else{
+        }else if(selec.equalsIgnoreCase("CELSIUS")&& select.equalsIgnoreCase(("CELSIUS"))){
             Toast.makeText(this, "No se puede convertir entre el mismo tipo", Toast.LENGTH_LONG).show();
         }
 
-    }
-    //Función limpiar
+        //CONVERSIONES DE FARENHEIT
+        if (selec.equalsIgnoreCase("FARENHEIT")&& select.equalsIgnoreCase("CELSIUS")) {
+            conversion= (nro1-32)*0.55555555555;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " °C ");
+        }else if (selec.equalsIgnoreCase("FARENHEIT")&& select.equalsIgnoreCase("KELVIN")) {
+            conversion= ((nro1-32)/1.8000)+ 273.15;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " K ");
+
+        }else if (selec.equalsIgnoreCase("FARENHEIT")&& select.equalsIgnoreCase("RANKINE")) {
+            conversion= (nro1-32)+ 491.67;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " °Ra ");
+        }else if (selec.equalsIgnoreCase("FARENHEIT")&& select.equalsIgnoreCase("FARENHEIT")){
+            Toast.makeText(this, "No se puede convertir entre el mismo tipo", Toast.LENGTH_LONG).show();
+        }
+
+        //CONVERSIONES KELVIN   YA QUEDA AHÍ EL FORMATO SÓLO PARA QUE CAMBIES LA FÓRMULA
+
+        if (selec.equalsIgnoreCase("KELVIN")&& select.equalsIgnoreCase("CELSIUS") ){
+            conversion= (nro1-32)*0.55555555555;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " °C ");
+        }else if (selec.equalsIgnoreCase("KELVIN")&& select.equalsIgnoreCase("FARENHEIT")){
+            conversion= (nro1-32)*0.55555555555;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " °F ");
+        }else if (selec.equalsIgnoreCase("KELVIN") && select.equalsIgnoreCase("RANKINE")){
+            conversion= (nro1-32)*0.55555555555;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " °Ra ");
+        }else if(selec.equalsIgnoreCase("KELVIN")&& select.equalsIgnoreCase("KELVIN")){
+            Toast.makeText(this, "No se puede convertir entre el mismo tipo", Toast.LENGTH_LONG).show();
+        }
+        //IGUAL QUE EN KELVIN YA ESTÁ LA ESTRUCTURA, SÓLO MODIFICAR LA FÓRMULA...
+
+        if (selec.equalsIgnoreCase("RANKINE")&& select.equalsIgnoreCase("CELSIUS")){
+            conversion= (nro1-32)*0.55555555555;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " °C ");
+        }else if (selec.equalsIgnoreCase("RANKINE") && select.equalsIgnoreCase("FARENHEIT")){
+            conversion= (nro1-32)*0.55555555555;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " °F ");
+        }else if (selec.equalsIgnoreCase("RANKINE") && select.equalsIgnoreCase("KELVIN")){
+            conversion= (nro1-32)*0.55555555555;
+            String resu=String.valueOf(conversion);
+            tvResultado.setText(resu + " K ");
+        }else;
+            Toast.makeText(this, "No se puede convertir entre el mismo tipo", Toast.LENGTH_LONG).show();
+        }
+
+    //Función limpiar   REALIZAR LA FUNCIÓN LIMPIAR
     public void Limpiar (View view){
         //
     }
